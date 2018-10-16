@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>EventosApp</title>
+</head>
+<body>
+
+	<h1>Detalhes Evento</h1>
+	<a href="/evento">Formulario</a>
+	<a href="/listarEventos">lista de Eventos</a>
+	
+	<br>
+	<br>
+	
+	<div th:each="evento : ${evento}" class="container detalhesEvento">
+	<h5>Detalhes do Evento</h5>
+		<div class="row">
+			<p>Nome: <span th:text="${evento.nome}"></span></p>
+			<p>Local: <span th:text="${evento.local}"></span></p>
+			<p>Data: <span th:text="${evento.data}"></span></p>
+			<p>Horario: <span th:text="${evento.horario_inicio}"></span></p>
+		</div>
+	</div>
+	
+	<div class="container formConvidado">
+	<h5>Adicionar Convidado</h5>
+		<form method="post" th:object="${convidado}">
+			Nome: <input type="text" value="" name="nome" placeholder="Nome Completo"/>
+			Rg: <input type="text" value="" name="rg" placeholder="AA-00.000.000" class="validate"/>
+			<button class="waves-effect waves-light btn" type="submit">Adicionar</button>
+		</form>
+	</div>
+	
+	<h5>Convidados</h5>
+	<div th:each="convidado : ${convidados}" class="container detalhesEvento">
+		<div class="row">
+			<p>Nome: <span th:text="${convidado.nome}"></span></p>
+			<a th:href="${(#mvc.url('EC#excluirConvidado').arg(0, convidado.rg)).build()}">
+				Excluir
+			</a>
+		</div>
+	</div>
+	
+</body>
+</html>

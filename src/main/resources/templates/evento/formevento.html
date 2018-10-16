@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="http://thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+<head>
+	<title>EventosApp</title>
+</head>
+<body>
+	<a href="/listarEventos">lista de Eventos</a>
+	<div class="container formEvento">
+	
+	<form class="container" method="post">
+		Nome: <input type="text" value="" name="nome"/>
+		<div class="row">
+			<div class="input-field col s6">
+				Local: <input type="text" value="" name="local"/>
+			</div>
+			<div class="input-field col s3">
+				Data: <input type="date" value="" name="data"/>
+			</div>
+			<div class="input-field col s3">
+				Horario: <input type="time" value="" name="horario_inicio"/>
+			</div>
+		</div>
+		<button class="waves-effect waves-light btn" type="submit">Salvar</button>
+	
+	</form>
+	</div>
+</body>
+
+
+</html>
